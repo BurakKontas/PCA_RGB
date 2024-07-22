@@ -31,8 +31,8 @@
             this.image1 = new System.Windows.Forms.PictureBox();
             this.LoadImage1 = new System.Windows.Forms.Button();
             this.LoadImage2 = new System.Windows.Forms.Button();
-            this.image2 = new System.Windows.Forms.PictureBox();
             this.PCA_Button = new System.Windows.Forms.Button();
+            this.image2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.image1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image2)).BeginInit();
             this.SuspendLayout();
@@ -45,6 +45,10 @@
             this.image1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.image1.TabIndex = 0;
             this.image1.TabStop = false;
+            this.image1.Paint += new System.Windows.Forms.PaintEventHandler(this.ImagePaint);
+            this.image1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ImageMouseDown);
+            this.image1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ImageMouseMove);
+            this.image1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ImageMouseUp);
             // 
             // LoadImage1
             // 
@@ -58,6 +62,7 @@
             // 
             // LoadImage2
             // 
+            this.LoadImage2.Enabled = false;
             this.LoadImage2.Location = new System.Drawing.Point(570, 12);
             this.LoadImage2.Name = "LoadImage2";
             this.LoadImage2.Size = new System.Drawing.Size(75, 23);
@@ -65,15 +70,6 @@
             this.LoadImage2.Text = "LoadImage2";
             this.LoadImage2.UseVisualStyleBackColor = true;
             this.LoadImage2.Click += new System.EventHandler(this.LoadImage2_Click);
-            // 
-            // image2
-            // 
-            this.image2.Location = new System.Drawing.Point(413, 41);
-            this.image2.Name = "image2";
-            this.image2.Size = new System.Drawing.Size(375, 395);
-            this.image2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.image2.TabIndex = 3;
-            this.image2.TabStop = false;
             // 
             // PCA_Button
             // 
@@ -85,11 +81,20 @@
             this.PCA_Button.UseVisualStyleBackColor = true;
             this.PCA_Button.Click += new System.EventHandler(this.PCA_Button_Click);
             // 
+            // image2
+            // 
+            this.image2.Location = new System.Drawing.Point(12, 444);
+            this.image2.Name = "image2";
+            this.image2.Size = new System.Drawing.Size(375, 284);
+            this.image2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.image2.TabIndex = 3;
+            this.image2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 741);
             this.Controls.Add(this.PCA_Button);
             this.Controls.Add(this.image2);
             this.Controls.Add(this.LoadImage2);
@@ -108,8 +113,8 @@
         private System.Windows.Forms.PictureBox image1;
         private System.Windows.Forms.Button LoadImage1;
         private System.Windows.Forms.Button LoadImage2;
-        private System.Windows.Forms.PictureBox image2;
         private System.Windows.Forms.Button PCA_Button;
+        private System.Windows.Forms.PictureBox image2;
     }
 }
 
